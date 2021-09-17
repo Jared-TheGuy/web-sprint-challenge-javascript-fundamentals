@@ -16,6 +16,7 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
+// the nested function can go and get the variable because memory has already been allocated to that variable in the execution context. This would be called closure.
 
 
 
@@ -28,9 +29,12 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  let value = 0;
+  for (let i=1; i < num + 1; i++){
+    value = value + i;
+  }
+  return value;
   }
  
 
@@ -56,8 +60,10 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(arr){
+    let displayNames = [];
+    arr.forEach(function (arr) {displayNames.push(`name: ${arr.animal_name}, scientific: ${arr.scientific_name}`);});
+    return displayNames; 
   }
   
 
@@ -67,8 +73,10 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(arr){
+    return arr.map(function (arr) { 
+      const newArr = arr.animal_name;
+      return newArr.toLowerCase();});
   }
   
   
@@ -77,8 +85,10 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(arr){
+    return arr.filter(function (a) { 
+      return a.population < 5;
+    })
   }
   
 
@@ -88,8 +98,9 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(arr){
+    return arr.reduce(function (a, b) {
+      return a.population + b.population; } );
   }
   
   
