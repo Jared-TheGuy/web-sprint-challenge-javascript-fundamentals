@@ -100,7 +100,7 @@ const zooAnimals = [
 
   function USApop(arr){
     return arr.reduce(function (a, b) {
-      return a + b.population;}, 0 );
+      return a + b.population;},0);
   }
   
   
